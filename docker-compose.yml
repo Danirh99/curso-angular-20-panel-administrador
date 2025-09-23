@@ -1,0 +1,12 @@
+version: '3'
+services:
+  angular-app:
+    build:
+      context: ./mi-app
+      dockerfile: ../Dockerfile.dev
+    working_dir: /app
+    volumes:
+      - ./mi-app:/app
+      - /app/node_modules
+    ports:
+      - "4200:4200"
