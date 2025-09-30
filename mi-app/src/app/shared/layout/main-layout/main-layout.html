@@ -1,0 +1,20 @@
+<div class="min-h-screen bg-gray-50 flex">
+  <!-- Sidebar -->
+  <app-sidebar [isCollapsed]="isSidebarCollapsed"></app-sidebar>
+
+  <div class="flex-1 flex flex-col">
+    <!-- HEader -->
+    <app-header
+      [sidebarCollapsed]="isSidebarCollapsed"
+      (toggleSidebar)="onToggleSidebar()"
+    ></app-header>
+
+    <!-- Area de contenido -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <router-outlet></router-outlet>
+    </main>
+
+    <!-- Footer -->
+    <app-footer></app-footer>
+  </div>
+</div>
