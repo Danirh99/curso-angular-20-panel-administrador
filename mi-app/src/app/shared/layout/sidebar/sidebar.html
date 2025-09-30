@@ -2,27 +2,29 @@
   [class]="sidebarClasses"
   class="h-full bg-gray-900 text-white transition-all duration-300 ease-in-out"
 >
+  <!-- Logo/Brand -->
   <div class="p-4 border-b border-gray-700">
     <div class="flex items-center space-x-2">
       <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
         <span class="text-white font-bold text-sm">A</span>
       </div>
       <h1 [class]="titleClasses" class="font-bold text-xl transition-opacity duration-300">
-        Admin Panel
+        AdminPanel
       </h1>
     </div>
   </div>
 
+  <!-- Navegación -->
   <nav class="mt-6">
     <ul class="space-y-2 px-4">
-      <li>
-        <a
-          [class]="titleClasses"
-          class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-800 transtion-colors duration-300"
-          href=""
-        >Dashboard</a
-        >
-      </li>
+      @for(route of routes; track route.label)
+      {
+        <li>
+          <a [routerLink]="route.path" routerLinkActive="bg-gray-800" class="flex items-center space-x-3 rounded-lg hover:bg-gray-800 transition-color p-2">
+            <span [class]="titleClasses" class="transition-opacity duration-300 ms-2">{{ route.label }}</span>
+          </a>
+        </li>
+      }
     </ul>
   </nav>
 </aside>

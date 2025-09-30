@@ -1,13 +1,17 @@
 import {Component, Input} from '@angular/core';
+import {navRoutes} from '../../../app.routes';
+import {RouterModule} from '@angular/router';
+
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './sidebar.html',
 })
 export class Sidebar {
   @Input() isCollapsed = false;
+  routes = navRoutes;
 
   // getter que devuelve clases CSS dinámicamente en función de la propiedad isCollapsed
   get sidebarClasses() {
