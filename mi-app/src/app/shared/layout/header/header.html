@@ -11,7 +11,13 @@
     </div>
 
     <div class="flex items-center space-x-4">
-      <p>Usuario</p>
+      @if (user$ | async; as user) {
+        <p>{{ user.nombre }}</p>
+        <button (click)="onLogout()" class="bg-red-500 text-white px-6 py-3 rounded shadow hover:bg-red-700 transition-colors duration-300">
+          Cerrar Sesión
+        </button>
+      }
+
     </div>
   </div>
 </header>
