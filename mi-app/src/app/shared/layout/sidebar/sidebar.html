@@ -15,14 +15,16 @@
 
   <nav class="mt-6">
     <ul class="space-y-2 px-4">
-      <li>
-        <a
-          [class]="titleClasses"
-          class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-800 transtion-colors duration-300"
-          href=""
-        >Dashboard</a
-        >
-      </li>
+      @for (route of routes; track route.label) {
+        <li>
+          <a
+            [class]="titleClasses"
+            class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-800 transtion-colors duration-300"
+            [routerLink]="route.path"
+          >{{ route.label }}</a
+          >
+        </li>
+      }
     </ul>
   </nav>
 </aside>
